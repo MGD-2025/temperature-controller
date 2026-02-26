@@ -2,6 +2,7 @@ import React  from 'react'
 import TemperatureControls from './components/TemperatureControls';
 import TemperatureDisplay from './components/TemperatureDisplay';
 import {useState} from 'react';
+import HistoryList from './components/HistoryList';
 
 
 // import TemperatureDisplay from './components/TemperatureDisplay';
@@ -10,6 +11,13 @@ import {useState} from 'react';
 
 function App() {
   const [temperatura, setTemperatura] = useState (20)
+  const [historial, setHistorial] = useState ([])
+
+  const añadirHistorial = (nuevaTemperatura) => {
+    const fecha = new Date().toLocaleTimeString();
+    setHistorial ([...historial, {fecha, nuevaTemperatura}]);
+  }
+  
     const incrementarTemperatura = () =>{
       setTemperatura(temperatura+1)
     }
@@ -28,6 +36,8 @@ function App() {
           decrementarTemperatura ={decrementarTemperatura}
           resetearTemperatura = {resetearTemperatura}
         />
+        <h2> Historial </h2> 
+        <HistoryList historial={historial}/>
 </div>
 
     )
