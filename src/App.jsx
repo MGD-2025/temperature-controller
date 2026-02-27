@@ -19,14 +19,20 @@ function App() {
   }
   
     const incrementarTemperatura = () =>{
-      setTemperatura(temperatura+1)
+      const nuevaTemperatura = temperatura+1
+      setTemperatura(nuevaTemperatura)
+      añadirHistorial(nuevaTemperatura)
     }
     const decrementarTemperatura =()=>{
-      setTemperatura(temperatura-1)
+      const nuevaTemperatura = temperatura-1
+      setTemperatura(nuevaTemperatura)
+      añadirHistorial(nuevaTemperatura)
     }
    const resetearTemperatura = () => {
-     setTemperatura(20);
-   }
+     setTemperatura(20)
+     añadirHistorial(20)
+
+    }
     return(
       <div className='app'>
         <h1>Controlador Temperatura</h1>
@@ -43,4 +49,6 @@ function App() {
     )
 }
 export default App;
+
+
 
